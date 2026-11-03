@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Nexora</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #080b14;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+:root {
+    --purple: #9b6cff;
+    --blue: #46c5ff;
+    --muted: #a5a9ba;
+}
+
+nav {
+    width: 100%;
+    padding: 24px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 130px 20px 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: #7946ff;
+    filter: blur(160px);
+    opacity: .25;
+    animation: pulse 5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(.8); opacity: .15; }
+    to { transform: scale(1.3); opacity: .35; }
+}
+
+.hero-content {
+    position: relative;
+    max-width: 850px;
+    animation: appear 1.2s ease;
+}
+
+.tag {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #55418c;
+    border-radius: 30px;
+    color: #c7aaff;
+    background: #17112b;
+    margin-bottom: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #a77aff, #47d2ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: auto;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 15px 32px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #8254ef, #398ce9);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px #7952e966;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.visual {
+    height: 350px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #211644, #102a40);
+    border: 1px solid #393052;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 2px solid #a77aff;
+    border-radius: 50%;
+    animation: rotate 8s linear infinite;
+}
+
+.visual::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #46c5ff;
+    border-radius: 50%;
+    animation: rotate 5s linear infinite reverse;
+}
+
+.visual span {
+    font-size: 65px;
+    font-weight: 900;
+    color: white;
+    z-index: 1;
+    text-shadow: 0 0 35px #a77aff;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+.features {
+    background: #0d1120;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    padding: 35px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #171b2d, #101525);
+    border: 1px solid #292d42;
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    border-color: var(--purple);
+    box-shadow: 0 15px 40px #7952e922;
+}
+
+.card .icon {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stat {
+    padding: 30px 15px;
+    border: 1px solid #292d42;
+    border-radius: 15px;
+    background: #101525;
+}
+
+.stat h2 {
+    font-size: 42px;
+    color: #a77aff;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    color: var(--muted);
+}
+
+.cta {
+    text-align: center;
+    background: radial-gradient(circle at center, #201541, #080b14 70%);
+    padding: 100px 20px;
+}
+
+.cta h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+footer {
+    padding: 30px 8%;
+    border-top: 1px solid #24283a;
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: all .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width: 850px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 550px) {
+    nav {
+        padding: 20px 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2,
+    .cta h2 {
+        font-size: 32px;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    footer {
+        justify-content: center;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">NEX<span>ORA.</span></div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="glow"></div>
+
+    <div class="hero-content">
+        <div class="tag">WHO WE ARE</div>
+
+        <h1>
+            Building Ideas.<br>
+            <span class="gradient">Creating Tomorrow.</span>
+        </h1>
+
+        <p>
+            We are a forward-thinking digital team passionate about
+            technology, creativity, and innovation. We transform
+            ambitious ideas into meaningful digital experiences.
+        </p>
+
+        <a href="#about" class="btn">Discover Our Story →</a>
+    </div>
+</header>
+
+<section id="about">
+    <div class="about-grid reveal">
+
+        <div class="about-text">
+            <div class="tag">OUR STORY</div>
+
+            <h2>Innovation Starts With <span class="gradient">A Vision.</span></h2>
+
+            <p>
+                At Nexora, we believe every great innovation begins
+                with a simple idea. Our mission is to combine modern
+                technology with creative thinking to build solutions
+                that make a difference.
+            </p>
+
+            <p>
+                We focus on delivering quality, exploring new
+                possibilities, and continuously improving the way
+                people interact with technology.
+            </p>
+
+            <a href="#features" class="btn">Explore More →</a>
+        </div>
+
+        <div class="visual">
+            <span>N</span>
+        </div>
+
+    </div>
+</section>
+
+<section class="features" id="features">
+
+    <div class="section-title reveal">
+        <div class="tag">WHAT DEFINES US</div>
+        <h2>Our <span class="gradient">Core Values</span></h2>
+        <p>The principles that drive everything we create.</p>
+    </div>
+
+    <div class="card-container">
+
+        <div class="card reveal">
+            <div class="icon">🚀</div>
+            <h3>Innovation</h3>
+            <p>
+                We embrace new technologies and creative approaches
+                to develop smarter and more effective solutions.
+            </p>
+        </div>
+
+        <div class="card reveal">
+            <div class="icon">🎯</div>
+            <h3>Excellence</h3>
+            <p>
+                We focus on quality, attention to detail, and
+                continuous improvement in every project.
+            </p>
+        </div>
+
+        <div class="card reveal">
+            <div class="icon">🤝</div>
+            <h3>Collaboration</h3>
+            <p>
+                We believe great results come from teamwork,
+                shared knowledge, and different perspectives.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+    <div class="section-title reveal">
+        <div class="tag">OUR JOURNEY</div>
+        <h2>Driven By <span class="gradient">Purpose</span></h2>
+        <p>Our commitment to building something meaningful.</p>
+    </div>
+
+    <div class="stats reveal">
+
+        <div class="stat">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>Dedication %</p>
+        </div>
+
+        <div class="stat">
+            <h2 class="counter" data-target="24">0</h2>
+            <p>Hours of Ideas</p>
+        </div>
+
+        <div class="stat">
+            <h2 class="counter" data-target="50">0</h2>
+            <p>Creative Concepts</p>
+        </div>
+
+        <div class="stat">
+            <h2 class="counter" data-target="1">0</h2>
+            <p>Clear Vision</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="cta">
+    <div class="reveal">
+        <div class="tag">LET'S BUILD THE FUTURE</div>
+
+        <h2>Have An Idea? <span class="gradient">Let's Create It.</span></h2>
+
+        <p>
+            Every great journey begins with one step.
+            Let's turn possibilities into reality.
+        </p>
+
+        <a href="index.html" class="btn">Back To Home →</a>
+    </div>
+</section>
+
+<footer>
+    <div class="logo">NEX<span>ORA.</span></div>
+    <p>© 2026 Nexora. All Rights Reserved.</p>
+    <p>Designed with creativity ✦</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+const counters = document.querySelectorAll(".counter");
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = Number(counter.dataset.target);
+            let current = 0;
+
+            const increment = Math.max(1, Math.ceil(target / 60));
+
+            const update = () => {
+                current = Math.min(current + increment, target);
+                counter.textContent = current;
+
+                if (current < target) {
+                    requestAnimationFrame(update);
+                }
+            };
+
+            update();
+            counterObserver.unobserve(counter);
+        }
+    });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => {
+    counterObserver.observe(counter);
+});
+</script>
+
+</body>
+</html>
