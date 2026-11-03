@@ -1,0 +1,256 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to System Design Lab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'DM Sans', sans-serif;
+    color: #f4f6ff;
+    background:
+        radial-gradient(ellipse at 15% 15%, rgba(79,70,229,.18), transparent 38%),
+        radial-gradient(ellipse at 85% 75%, rgba(34,211,238,.12), transparent 35%),
+        #080b16;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .23;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 54px 54px;
+}
+
+header {
+    width: min(1160px, calc(100% - 48px));
+    height: 88px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,.11);
+    animation: dropIn .8s ease both;
+    position: relative;
+    z-index: 2;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    color: #071018;
+    font-size: 21px;
+    background: linear-gradient(135deg, #55e6f2, #8b9cff);
+    box-shadow: 0 0 28px rgba(85,230,242,.24);
+}
+
+.brand small {
+    display: block;
+    color: #a6aec8;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 3px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #c8cee2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #5ee6ad;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #5ee6ad;
+    animation: pulse 1.8s infinite;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.hero {
+    width: min(1160px, calc(100% - 48px));
+    min-height: calc(100vh - 88px);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 40px;
+    padding: 70px 0 86px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border: 1px solid rgba(85,230,242,.23);
+    border-radius: 30px;
+    background: rgba(85,230,242,.055);
+    color: #9deef4;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: rise .8s .12s both;
+}
+
+h1 {
+    margin: 27px 0 22px;
+    font: 700 clamp(3.2rem, 7vw, 6.4rem)/.99 'Space Grotesk', sans-serif;
+    letter-spacing: -5px;
+    animation: rise .9s .22s both;
+}
+
+.gradient {
+    display: block;
+    background: linear-gradient(100deg, #fff, #b8c5ff, #64e8ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.description {
+    max-width: 530px;
+    color: #a6aec8;
+    font-size: 16px;
+    line-height: 1.85;
+    animation: rise .9s .34s both;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+    animation: rise .9s .46s both;
+}
+
+.btn {
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 23px;
+    border-radius: 13px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.primary {
+    color: #071018;
+    background: linear-gradient(110deg, #68edf1, #9aabff);
+    box-shadow: 0 10px 34px rgba(85,230,242,.18);
+}
+
+.secondary {
+    color: #e5e9fa;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.035);
+}
+
+/* Animated Illustration */
+
+.visual {
+    min-height: 470px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    animation: fadeIn 1.2s .35s both;
+}
+
+.orb {
+    position: absolute;
+    width: 390px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(85,230,242,.18), rgba(105,91,220,.13), transparent 70%);
+    filter: blur(8px);
+    animation: float 7s ease-in-out infinite;
+}
+
+.orbit {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(142,161,255,.2);
+    border-radius: 50%;
+    transform: rotate(-25deg) scaleY(.42);
+}
+
+.orbit.two {
+    width: 440px;
+    height: 440px;
+    border-color: rgba(85,230,242,.16);
+    transform: rotate(48deg) scaleY(.42);
+}
+
+.orbit.three {
+    width: 300px;
+    height: 300px;
+    border-color: rgba(155,140,255,.22);
+    transform: rotate(90deg) scaleY(.42);
+}
+
+.core {
+    width: 190px;
+    height: 190px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 38px;
+    background: linear-gradient(145deg, #1e2a4b, #0c1327);
+    box-shadow: 0 25px 90px rgba(0,0,0,.42), 0 0 70px rgba(85,230,242,.12);
+    transform: rotate(-8deg);
+    animation: coreFloat 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+.core-inner {
+    width: 112px;
+    height: 112px;
+    display: grid;
+    place-items: center;
+    border-radius: 29px;
+    background: linear-gradient(1
+```
